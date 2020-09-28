@@ -1,0 +1,11 @@
+<h2><%= @doctor.name %></h2>
+<p>
+  <%= @doctor.specialty %><br>
+  <%= @doctor.location %><br>
+  <%= @doctor.insurance_accepted %><br>
+</p>
+Reviews:
+  <% @doctor.reviews.each do |review| %>
+    <%= link_to review.patient.username, patient_path(review.patient) %> said
+    <%= review.patient_review %>
+  <% end %>
