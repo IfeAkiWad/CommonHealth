@@ -21,3 +21,9 @@ Doctor.create(name: "Tracy M. Brown, MD", specialty: "Obstretics and Gynecology"
 Doctor.create(name: "Olubowale A. Ogunkunle, MD", specialty: "Cardiology", location: "Atlanta, Georgia", insurance_accepted: "Anthem Blue Cross Blue Shield of Georgia")
 Doctor.create(name: "Tamajah M. Jordan, MD", specialty: "Family Medicine", location: "Chicago, Illinois", insurance_accepted: "Molina Health Care")
 Doctor.create(name: "Alicia Smith, MD", specialty: "Pediatrics", location: "Chicago, Illinois", insurance_accepted: "Blue Cross Blue Shield")
+
+Patient.create(name: "Alana Jackson", age: "40", location: "Atlanta, Gerogia", username: "LanaJack", email: "Alana@Jackson.com", insurance: "", password_digest: "georgiaPeach")
+Patient.create(name: "Peter Howard", age: "53", location: "Los Angeles, California", username: "BigPete", email: "Peter@Howard.com", insurance: "", password_digest: "GrandpaofFOUR")
+Patient.create(name: "Chad Johnson", age: "29", location: "Raleigh, North Carolina", username: "OchoCinco", email: "Chad@Johnson.com", insurance: "", password_digest: "feb29baby")
+Patient.create(name: "Tiffany Stewart", age: "30", location: "Atlanta, Gerogia", username: "fancyTiff", email: "Tiffany@Stewart.com", insurance: "", password_digest: "ATLshawty")
+Patient.create(name: "Marie Griffin", age: "31", location: "New York, New York", username: "MrsGriffin", email: "Marie@Griffin.com", insurance: "", password_digest: "UptownBaby")
