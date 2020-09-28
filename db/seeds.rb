@@ -20,3 +20,4 @@ Doctor.create(name: "Keith Black, MD", specialty: "Oncology", location: "Oakland
 Doctor.create(name: "Tracy M. Brown, MD", specialty: "Obstretics and Gynecology", location: "Boston, Massachusetts", insurance_accepted: "Blue Cross Blue Shield of Massachusetts")
 Doctor.create(name: "Olubowale A. Ogunkunle, MD", specialty: "Cardiology", location: "Atlanta, Georgia", insurance_accepted: "Anthem Blue Cross Blue Shield of Georgia")
 Doctor.create(name: "Tamajah M. Jordan, MD", specialty: "Family Medicine", location: "Chicago, Illinois", insurance_accepted: "Molina Health Care")
+Doctor.create(name: "Alicia Smith, MD", specialty: "Pediatrics", location: "Chicago, Illinois", insurance_accepted: "Blue Cross Blue Shield")
