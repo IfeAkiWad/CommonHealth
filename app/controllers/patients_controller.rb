@@ -34,7 +34,7 @@ class PatientsController < ApplicationController
 
     def destroy
         #is this similar to the destroy action in the sessions controller?
-        
+
     end
 
     private
@@ -43,6 +43,6 @@ class PatientsController < ApplicationController
     end
 
     def patient_params
-        params.require(:patient).permit(:name, :age, :location, :password_confirmation)
+        params.require(:patient).permit(:name, :age, :location, :username, :email, :insurance, :password_confirmation)
     end
 end
