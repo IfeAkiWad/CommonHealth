@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
 
     def index
         #is an index action necessary?
+        @patients = Patient.all
     end
 
     def show
