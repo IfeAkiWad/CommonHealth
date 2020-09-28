@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_031842) do
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
-    t.string "insurance"
+    t.string "insurance_accepted"
     t.string "location"
   end
 
