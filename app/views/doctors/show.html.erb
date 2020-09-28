@@ -1,8 +1,8 @@
 <h2><%= @doctor.name %></h2>
 <p>
-  <%= @doctor.specialty %><br>
-  <%= @doctor.location %><br>
-  <%= @doctor.insurance_accepted %><br>
+Specialty:  <%= @doctor.specialty %><br>
+Location:  <%= @doctor.location %><br>
+Insurance Accepted:  <%= @doctor.insurance_accepted %><br>
 </p>
 Reviews:
   <% @doctor.reviews.each do |review| %>
