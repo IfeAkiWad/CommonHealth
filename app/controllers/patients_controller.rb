@@ -33,6 +33,8 @@ class PatientsController < ApplicationController
     end
 
     def destroy
+        #is this similar to the destroy action in the sessions controller?
+        
     end
 
     private
