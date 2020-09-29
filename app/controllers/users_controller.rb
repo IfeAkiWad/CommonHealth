@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
     def new
-        @user = user.new
+        @user = User.new
     end
 
     def index
         #is an index action necessary?
-        @users = user.all
+        @users = User.all
     end
 
     def show
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = user.new(user_params)
+        @user = User.new(user_params)
         if @user.valid?
             @user.save
             redirect_to user_path(@user)
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     def update
         user_set
         @user.update(user_params)
-        redirect_to patietn_path(@user)
+        redirect_to user_path(@user)
     end
 
     def destroy
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     private
     def user_set
-        @user = user.find_by_id(params[:id])
+        @user = User.find_by_id(params[:id])
     end
 
     def user_params
