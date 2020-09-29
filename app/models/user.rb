@@ -1,4 +1,4 @@
-class Patient < ApplicationRecord
+class User < ApplicationRecord
     has_many :reviews
     has_many :doctors, through: :reviews
     validates :username, :email, presence: true, uniqueness: true

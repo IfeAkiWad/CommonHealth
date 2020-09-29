@@ -1,9 +1,0 @@
-<h2><%= @patient.username %> </h2> has reviewed the following doctor:
- 
-<% @patient.reviews.each do |review| %>
-  <ol>
-    <li>
-  <%= link_to doctor.name, doctor_path(doctor) %>
-    <li>
-  </ol>
-<% end %>
