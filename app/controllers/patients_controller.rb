@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
             @patient.save
             redirect_to patient_path(@patient)
         else
-            #render :new
+            render :new
         end
     end
 
