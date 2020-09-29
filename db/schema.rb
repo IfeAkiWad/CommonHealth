@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_020116) do
+ActiveRecord::Schema.define(version: 2020_09_29_024327) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
@@ -19,11 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_020116) do
     t.string "location"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "doctor_id"
-    t.integer "user_id"
-    t.string "user_review"
-  end
+# Could not dump table "reviews" because of following StandardError
+#   Unknown type '' for column 'patient_id'
 
   create_table "users", force: :cascade do |t|
     t.string "name"
