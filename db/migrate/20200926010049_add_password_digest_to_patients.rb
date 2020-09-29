@@ -1,5 +1,5 @@
-class AddPasswordDigestToPatients < ActiveRecord::Migration[6.0]
+class AddPasswordDigestToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :patients, :password_digest, :string
+    add_column :users, :password_digest, :string
   end
 end

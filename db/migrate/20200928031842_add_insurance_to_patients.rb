@@ -1,5 +1,5 @@
-class AddInsuranceToPatients < ActiveRecord::Migration[6.0]
+class AddInsuranceToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :patients, :insurance, :boolean
+    add_column :users, :insurance, :boolean
   end
 end

@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_020116) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "doctor_id"
-    t.integer "patient_id"
-    t.string "patient_review"
+    t.integer "user_id"
+    t.string "user_review"
   end
 
   create_table "users", force: :cascade do |t|
