@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_031842) do
+ActiveRecord::Schema.define(version: 2020_09_29_020116) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,13 @@ ActiveRecord::Schema.define(version: 2020_09_28_031842) do
     t.string "location"
   end
 
-  create_table "patients", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "patient_id"
+    t.string "patient_review"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "age"
     t.string "location"
@@ -27,12 +33,6 @@ ActiveRecord::Schema.define(version: 2020_09_28_031842) do
     t.string "username"
     t.string "email"
     t.boolean "insurance"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "doctor_id"
-    t.integer "patient_id"
-    t.string "patient_review"
   end
 
 end
