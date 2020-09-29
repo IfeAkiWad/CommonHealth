@@ -6,4 +6,6 @@ class User < ApplicationRecord
     validates :password, presence: true
      #should I validate the presence of location
     has_secure_password
+
+    #omniauth custom class here
 end
