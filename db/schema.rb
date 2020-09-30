@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_205101) do
     t.string "location"
     t.string "email"
     t.string "password"
+    t.string "password_digest"
     t.boolean "insurance"
   end
 
