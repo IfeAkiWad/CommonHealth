@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :age
       t.string :location
       t.string :email
-      t.string :password_digest
+      t.string :password
       t.boolean :insurance
     end
   end

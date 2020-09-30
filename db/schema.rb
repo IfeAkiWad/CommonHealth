@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_205101) do
     t.integer "age"
     t.string "location"
     t.string "email"
-    t.string "password_digest"
+    t.string "password"
     t.boolean "insurance"
   end
 
