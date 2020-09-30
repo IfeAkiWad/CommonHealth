@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:patient_review, :doctor_name, :patient_name)
+        params.require(:review).permit(:content, :doctor_name, :user_name)
     end
 
 
