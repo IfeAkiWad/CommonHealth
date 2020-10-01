@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
   #sessions login and sign up
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
@@ -7,9 +8,11 @@ Rails.application.routes.draw do
  
   resources :doctors, only: [:show, :index]
   resources :users, only: [:show]
- resources :reviews, only: [:edit, :update, :destroy]
-
+  resources :reviews
+  
+  #doctor's reviews
   resources :doctors do
-    resources :reviews, only: [:index, :new, :create]
+    # nested resource for reviews
+    resources :reviews, only: [:index, :new]
   end
 end
