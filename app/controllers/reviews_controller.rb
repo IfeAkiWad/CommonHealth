@@ -4,7 +4,12 @@ class ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Review.all
+        if params[:doctor_id]
+            @reviews = Doctor.find(params[:doctor_id]).reviews
+          else
+            @reviews = Review.all
+          end
+        end
     end
 
     def show
@@ -15,7 +20,7 @@ class ReviewsController < ApplicationController
         @review = Review.new(review_params)
         if @review.valid?
             @review.save
-            redirect_to doctor_review_path(@doctor)
+            redirect_to review_path(@review)
         else
             render :new
         end
@@ -32,7 +37,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        
+
     end
 
     private
