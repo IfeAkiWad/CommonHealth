@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
  
   resources :doctors, only: [:show, :index]
-  resources :users, only: [:show]
+  resources :users, only: [:new]
   resources :reviews
   
   #doctor's reviews
