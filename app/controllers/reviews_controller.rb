@@ -5,10 +5,10 @@ class ReviewsController < ApplicationController
 
     def index
         if params[:doctor_id]
-            @reviews = Doctor.find(params[:doctor_id]).reviews
-          else
+            #defining reviews based on inclusion of the doctor_id parameter
+            @reviews = Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
+        else
             @reviews = Review.all
-          end
         end
     end
 
@@ -48,6 +48,4 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:content, :doctor_name, :user_name)
     end
-
-
 end

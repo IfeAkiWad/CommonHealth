@@ -4,8 +4,7 @@ Specialty:  <%= @doctor.specialty %><br>
 Location:  <%= @doctor.location %><br>
 Insurance Accepted:  <%= @doctor.insurance_accepted %><br>
 </p>
-Reviews:
-  <% @doctor.reviews.each do |review| %>
-    <%= link_to review.user.username, user_path(review.user) %> said
-    <%= review.user_review %>
-  <% end %>
+<%=link_to "Reviews of Doctor", doctor_reviews_path(@doctor) %>
+<%=link_to "Create a Review", new_doctor_review_path(@doctor) %>
+
+
