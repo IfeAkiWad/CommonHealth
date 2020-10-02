@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
+        # binding.pry
         @review = Review.new(review_params)
         if @review.valid?
             @review.save
