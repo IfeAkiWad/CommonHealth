@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
         @review = Review.new(review_params)
         if @review.valid?
             @review.save
-            redirect_to review_path(@review)
+            redirect_to doctor_review_path(@doctor)
         else
             render :new
         end
@@ -47,6 +47,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:content, :doctor_name, :user_name)
+        params.require(:review).permit(:content, :doctor_id, :user_id)
     end
 end
