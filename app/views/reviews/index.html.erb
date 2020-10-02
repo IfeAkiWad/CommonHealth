@@ -1,5 +1,7 @@
-<h2>Review</h2>
+<h2>Reviews</h2>
  
   
-  <p><%= review.content %></p>
+  <% @reviews.each do |review|  %>
+    <%= review.content %>
+  <% end %>
  
