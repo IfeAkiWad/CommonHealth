@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :require_login
 
     def new
         @user = User.new
@@ -45,5 +46,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name, :age, :location, :username, :email, :insurance, :password, :password_confirmation)
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id #Unless the session includes :user_id, we return an error
     end
 end
