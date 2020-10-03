@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    before_action :require_login
+    before_action :require_login #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
+
+
 
     def new
         @user = User.new

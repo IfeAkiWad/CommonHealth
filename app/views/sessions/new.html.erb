@@ -1,6 +1,6 @@
 <h2>Log In</h2>
 
-<%= form_for @review do |f| %>
-    <label> Username:<br><br><%= f.text_field :content %></label><br><br>
-      <%= f.submit %>
-    <% end %>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+    <input name=name>
+    <input type=submit value='login'>
+  <% end %>

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id #user's ID is stored as the value of session[:user_id].
       redirect_to user_path(@user)
     else
-      render :new
+      redirect_to '/login'
   end
 
   def destroy
