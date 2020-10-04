@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
     belongs_to :user
-    belongs_to :doctor
+    belongs_to :doctor, :optional => true
     
     validates :content, presence: true
 

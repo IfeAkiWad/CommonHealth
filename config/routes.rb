@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :reviews
   
   #doctor's reviews
-  resources :doctors do
+  resources :doctors, only: [:show, :index] do
     # nested resource for reviews
     resources :reviews, only: [:index, :new]
   end

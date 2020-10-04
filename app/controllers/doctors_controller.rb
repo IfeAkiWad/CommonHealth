@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-    def index
+    def index #ERROR: list repeats itself!!!!
         @doctors = Doctor.all
     end
 
@@ -8,8 +8,15 @@ class DoctorsController < ApplicationController
     end
 
     # def create
+    #     @doctor = Doctor.create(doctor_params)
+    #     @doctor.save
+    #     redirect_to doctors_path
     # end
 
     #should there be a create action if there the doctors are already provided in the system?
     #maybe give doctor oppurtunity to be a user as well?
+    # private
+    # def doctor_params
+    #     params.require(:user).permit(:name, :specialty, :location, :insurance_accepted)
+    # end
 end

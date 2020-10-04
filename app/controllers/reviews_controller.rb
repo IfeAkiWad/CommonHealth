@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
     def new
+        if params[:doctor_id]
+            @doctor_id = params[:doctor_id]
+        end
         @review = Review.new
     end
 
@@ -17,12 +20,11 @@ class ReviewsController < ApplicationController
         review_set
     end
 
-    def create
+    def create #HUGE ERROR: doesn't save review, because doctor doesn't exist.
         # binding.pry
-        @review = current_user.Review.new(review_params)
-        if @review.valid?
-            @review.save
-            redirect_to doctor_review_path(@doctor)
+        @review = current_user.reviews.new(review_params)
+        if @review.save
+            redirect_to doctor_reviews_path(@doctor).review
         else
             render :new
         end
