@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_login #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
-
-
+    # before_action :require_login #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
 
     def new
         @user = User.new
@@ -18,8 +16,8 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.valid?
-            @user.save
+        if @user.save
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             render :new
