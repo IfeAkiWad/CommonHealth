@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     def new
         if params[:doctor_id]
-            @doctor_id = params[:doctor_id]
+            @doctor = Doctor.find_by_id(params[:doctor_id])
         end
         @review = Review.new
     end
@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
             #defining reviews based on inclusion of the doctor_id parameter
                     @reviews = Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
                 else
-                    # @reviews = Review.all
-                    current_user.reviews
+                    Review.all
+                    # current_user.reviews
                 end
     end
 
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
         # binding.pry
         @review = current_user.reviews.new(review_params)
         if @review.save
-            redirect_to doctor_reviews_path(@doctor).review
+            redirect_to reviews_path(@doctor)
         else
             render :new
         end

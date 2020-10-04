@@ -1,11 +1,10 @@
-<!--  
+  
 <% if @review.errors.any? %>
     <div id="error_explanation">
     <h2>
       <%= pluralize(@review.errors.count, "error") %>
       prohibited this review from being saved:
     </h2>
- 
     <ul>
     <% @review.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -13,9 +12,13 @@
     </ul>
   </div>
 <% end %> 
--->
 
-<%= form_for @review do |f| %>
+
+<%= form_for(@review) do |f| %>
+  <% if @doctor %>
+  <h3>Review <%=@doctor.name%></h3>
+    <%= f.hidden_field :doctor_id, value: @doctor.id %>
+  <% end %>
 <label> Write Review Here:<br><br><%= f.text_area :content %></label><br><br>
   <%= f.submit %>
 <% end %>

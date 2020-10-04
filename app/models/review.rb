@@ -6,7 +6,7 @@ class Review < ApplicationRecord
 
 
     def self.find_by_doctor_id(id)
-        where(doctor_id: id)
+        self.where(doctor_id: id)
     end
     
 end
