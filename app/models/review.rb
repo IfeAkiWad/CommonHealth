@@ -2,7 +2,7 @@ class Review < ApplicationRecord
     belongs_to :user
     belongs_to :doctor, :optional => true
     
-    validates :content, presence: true
+    validates :content, presence: true, length: { maximum: 250 }
 
 
     def self.find_by_doctor_id(id)

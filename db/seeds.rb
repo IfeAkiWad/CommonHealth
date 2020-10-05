@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# Review.destroy_all
 
 Doctor.create(name: "Ihuoma O. Chukwueke, MD", specialty: "Family Medicine", location: "Los Angeles, California", insurance_accepted: "Kaiser Foundation")
 Doctor.create(name: "Tuwanda L. Williamson, MD", specialty: "Cardiology", location: "Atlanta, Gerogia", insurance_accepted: "Anthem")
