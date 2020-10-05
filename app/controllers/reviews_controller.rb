@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    before_action :require_login #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
+    skip_before_action :require_login, only: [:index]
     def new
         if params[:doctor_id]
             @doctor = Doctor.find_by_id(params[:doctor_id])
@@ -51,5 +53,11 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:content, :doctor_id, :user_id)
+    end
+
+    def require_login
+        if !current_user
+            redirect_to '/login'
+        end 
     end
 end

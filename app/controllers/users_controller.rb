@@ -48,7 +48,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :location, :username, :email, :insurance, :password, :password_confirmation)
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id #Unless the session includes :user_id, we return an error
-    end
+    # def require_login
+    #     return head(:forbidden) unless session.include? :user_id #Unless the session includes :user_id, we return an error
+    # end
 end
