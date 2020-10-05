@@ -28,16 +28,16 @@ class UsersController < ApplicationController
         user_set
     end
 
-    def update
-        user_set
-        @user.update(user_params)
-        redirect_to user_path(@user)
-    end
+    # def update
+    #     user_set
+    #     @user.update(user_params)
+    #     redirect_to user_path(@user)
+    # end
 
-    def destroy
-        #is this similar to the destroy action in the sessions controller?
+    # def destroy
+    #     #is this similar to the destroy action in the sessions controller?
 
-    end
+    # end
 
     private
     def user_set

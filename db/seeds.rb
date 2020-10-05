@@ -24,8 +24,8 @@ Doctor.create(name: "Olubowale A. Ogunkunle, MD", specialty: "Cardiology", locat
 Doctor.create(name: "Tamajah M. Jordan, MD", specialty: "Family Medicine", location: "Chicago, Illinois", insurance_accepted: "Molina Health Care")
 Doctor.create(name: "Alicia Smith, MD", specialty: "Pediatrics", location: "Chicago, Illinois", insurance_accepted: "Blue Cross Blue Shield")
 
-# User.create(name: "Alana Jackson", age: "40", location: "Atlanta, Gerogia", username: "LanaJack", email: "Alana@Jackson.com", insurance: true, password: "georgiaPeach")
-# User.create(name: "Peter Howard", age: "53", location: "Los Angeles, California", username: "BigPete", email: "Peter@Howard.com", insurance: true, password: "GrandpaofFOUR")
-# User.create(name: "Chad Johnson", age: "29", location: "Raleigh, North Carolina", username: "OchoCinco", email: "Chad@Johnson.com", insurance: false, password: "feb29baby")
-# User.create(name: "Tiffany Stewart", age: "30", location: "Atlanta, Gerogia", username: "fancyTiff", email: "Tiffany@Stewart.com", insurance: true, password: "ATLshawty")
-# User.create(name: "Marie Griffin", age: "31", location: "create York, create York", username: "MrsGriffin", email: "Marie@Griffin.com", insurance: true, password: "UptownBaby")
+User.create(name: "Alana Jackson", location: "Atlanta, Gerogia", username: "LanaJack", email: "Alana@Jackson.com", insurance: true, password: "georgiaPeach")
+User.create(name: "Peter Howard", location: "Los Angeles, California", username: "BigPete", email: "Peter@Howard.com", insurance: true, password: "GrandpaofFOUR")
+User.create(name: "Chad Johnson", location: "Raleigh, North Carolina", username: "OchoCinco", email: "Chad@Johnson.com", insurance: false, password: "feb29baby")
+User.create(name: "Tiffany Stewart", location: "Atlanta, Gerogia", username: "fancyTiff", email: "Tiffany@Stewart.com", insurance: true, password: "ATLshawty")
+User.create(name: "Marie Griffin", location: "create York, create York", username: "MrsGriffin", email: "Marie@Griffin.com", insurance: true, password: "UptownBaby")
