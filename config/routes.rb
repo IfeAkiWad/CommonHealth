@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   #doctor's reviews
   resources :doctors do
     # nested resource for reviews
-    resources :reviews, only: [:index, :new]
+    resources :reviews, only: [:index, :new, :show]
   end
 end
