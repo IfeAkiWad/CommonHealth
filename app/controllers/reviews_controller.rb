@@ -14,8 +14,9 @@ class ReviewsController < ApplicationController
                     @reviews = Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
                 else
                     Review.all
-                    # current_user.reviews
+                    current_user.reviews
                 end
+                
     end
 
     def show
