@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :require_login #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
     skip_before_action :require_login, only: [:index]
+    
     def new
         if params[:doctor_id]
             @doctor = Doctor.find_by_id(params[:doctor_id])
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
         review_set
     end
 
-    def create #HUGE ERROR: doesn't save review, because doctor doesn't exist.
+    def create 
         
         @review = current_user.reviews.new(review_params)
         if @review.save
@@ -33,14 +34,17 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def edit
+    def edit #notrendering updated form
         review_set
     end
 
-    def update
+    def update #notrendering updated form
         review_set
-        @review.update(review_params)
-        redirect_to review_path(@review)
+       if @review.update(review_params)
+        redirect_to user_path(@user)
+       else 
+        render :edit
+       end
     end
 
     def destroy
@@ -58,7 +62,7 @@ class ReviewsController < ApplicationController
 
     def require_login
         if !current_user
-            redirect_to '/login'
+            redirect_to login_path
         end 
     end
 end

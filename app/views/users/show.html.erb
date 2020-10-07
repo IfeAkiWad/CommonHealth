@@ -6,5 +6,6 @@
     </il>
 </ul>
     <% end %>
-<br><br>
+<%=link_to "Edit Review", edit_review_path %><br>
+<%= link_to "Delete Review", review_path, method: 'DELETE'%>
 <%=link_to "List of Doctors", doctors_path %>

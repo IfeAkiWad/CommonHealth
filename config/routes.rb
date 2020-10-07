@@ -11,7 +11,9 @@ Rails.application.routes.draw do
  
   resources :doctors, only: [:show, :index]
   resources :users
-  resources :reviews
+  resources :reviews, only: [:index, :show, :new, :create, :edit, :update]
+  get 'reviews/:id/edit', to: 'reviews#edit'
+  patch 'reviews/:id/', to: 'articles#update'
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
