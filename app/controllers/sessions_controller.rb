@@ -13,6 +13,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  def omniauth
+  end
+
   def destroy
     session.clear
     redirect_to '/login'

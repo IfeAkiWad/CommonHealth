@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   #sessions login and sign up
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   resources :doctors, only: [:show, :index]
   resources :users
   resources :reviews
+
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
   #doctor's reviews
   resources :doctors do
