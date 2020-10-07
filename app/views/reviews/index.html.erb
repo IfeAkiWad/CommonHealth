@@ -1,7 +1,9 @@
+  <h2><%= this_doctor %></h2>
+  
   <% @reviews.each do |review|  %>
     <ul>
       <il>
-      <h2><%= review.doctor.name %></h2>
+      <!--<h2><%= review.doctor.name %></h2>-->
         <%= link_to review.user.username, user_path(review.user) %> said, <br>
         "<%= review.content %>"
       </il>

@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
     end
 
     def create #HUGE ERROR: doesn't save review, because doctor doesn't exist.
-        # binding.pry
+        
         @review = current_user.reviews.new(review_params)
         if @review.save
             redirect_to reviews_path(@doctor)
