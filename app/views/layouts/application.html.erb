@@ -11,6 +11,7 @@
 
   <body>
     <%=render_navigation%>
-    <%= yield %>
+    <div> <%=flash[:alert] %></div>
+    <div><%= yield %></div>
   </body>
 </html>

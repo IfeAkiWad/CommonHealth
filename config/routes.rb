@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews, only: [:index, :show, :new, :create, :edit, :update]
   get 'reviews/:id/edit', to: 'reviews#edit'
-  patch 'reviews/:id/', to: 'articles#update'
+  patch 'reviews/:id', to: 'reviews#update'
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
   #doctor's reviews
   resources :doctors do
     # nested resource for reviews
-    resources :reviews, only: [:index, :new, :show]
+    resources :reviews#, only: [:index, :new, :show]
   end
 end

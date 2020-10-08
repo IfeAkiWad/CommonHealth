@@ -2,10 +2,11 @@
 <ul>
     <il>
      <% @user.reviews.each do |review| %>
-        "<%= review.content %>" about <%= link_to review.doctor.name, doctor_path(review.doctor) %>
+        "<%= review.content %>" about <%= link_to review.doctor.name, doctor_path(review.doctor) %><br><br>
+        <%=link_to "Edit Review", edit_review_path(review) %><br>
+        <%= link_to "Delete Review", review_path(review), method: 'DELETE'%>
     </il>
 </ul>
     <% end %>
-<%=link_to "Edit Review", edit_review_path %><br>
-<%= link_to "Delete Review", review_path, method: 'DELETE'%>
+
 <%=link_to "List of Doctors", doctors_path %>

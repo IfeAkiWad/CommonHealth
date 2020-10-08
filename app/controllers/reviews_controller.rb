@@ -35,7 +35,10 @@ class ReviewsController < ApplicationController
     end
 
     def edit #notrendering updated form
+        # binding.pry
         review_set
+        # binding.pry
+
     end
 
     def update #notrendering updated form
@@ -48,7 +51,13 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-
+        review_set
+        if @review.delete
+            redirect_to user_path(@user)
+        else
+            flash[:alert] = "This review could not be deleted"
+            render :edit
+        end
     end
 
     private
