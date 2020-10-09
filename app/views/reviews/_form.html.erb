@@ -1,4 +1,8 @@
-<%= form_for(@review) do |f| %>
+
+
+
+<!--
+<%= form_for @review do |f| %>
   <% if @doctor %>
   <h3>Review <%=@doctor.name%></h3>
     <%= f.hidden_field :doctor_id, value: @doctor.id %>
@@ -8,3 +12,4 @@ Write Review Here:<br><br>
   <%= f.text_area :content %><br><br>
   <%= f.submit %>
 <% end %>
+-->
