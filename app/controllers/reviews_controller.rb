@@ -28,37 +28,37 @@ class ReviewsController < ApplicationController
         
         @review = current_user.reviews.new(review_params)
         if @review.save
+            if params[:doctor_id]
             redirect_to reviews_path(@doctor)
+            end
         else
             render :new
         end
     end
 
     def edit #notrendering updated form
-        # binding.pry
-        review_set
-        # binding.pry
+       review_set
 
     end
 
     def update #notrendering updated form
         review_set
-        # binding.pry
-       if @review.update(review_params)
-            redirect_to reviews_path#user_path
-       else 
+        if @review.update(params.permit(:content, :doctor_id, :user_id)) 
+            redirect_to user_path(current_user, @user)
+        else
+            flash[:alert] = "try again."
             render :edit
-       end
+        end
     end
 
     def destroy
-        review_set
-        if @review.delete
-            redirect_to user_path
-        else
-            flash[:alert] = "Could not be deleted. Try again."
-            render :edit
-        end
+        # review_set
+        # if @review.delete
+        #     redirect_to user_path
+        # else
+        #     flash[:alert] = "Could not be deleted. Try again."
+        #     render :edit
+        # end
     end
 
     private
