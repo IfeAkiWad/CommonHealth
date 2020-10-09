@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    # before_action :require_login, :review_set, only: [:edit, :update, :show] #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
+    before_action :require_login#, :review_set, only: [:edit, :update, :show] #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
     # skip_before_action :require_login, only: [:index]
     
     def new
@@ -62,13 +62,13 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        # review_set
-        # if @review.delete
-        #     redirect_to user_path
-        # else
+        review_set
+        if @review.delete
+            redirect_to user_path
+        else
         #     flash[:alert] = "Could not be deleted. Try again."
-        #     render :edit
-        # end
+            render :edit
+        end
     end
 
     private
