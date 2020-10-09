@@ -43,19 +43,20 @@ class ReviewsController < ApplicationController
 
     def update #notrendering updated form
         review_set
+        # binding.pry
        if @review.update(review_params)
-        redirect_to user_path(@user)
+            redirect_to reviews_path#user_path
        else 
-        render :edit
+            render :edit
        end
     end
 
     def destroy
         review_set
         if @review.delete
-            redirect_to user_path(@user)
+            redirect_to user_path
         else
-            flash[:alert] = "This review could not be deleted"
+            flash[:alert] = "Could not be deleted. Try again."
             render :edit
         end
     end

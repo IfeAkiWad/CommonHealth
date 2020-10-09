@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <%=render_navigation%>
+  <!-- in application helper file -->
+    <%=render_navigation%> 
     <div> <%=flash[:alert] %></div>
     <div><%= yield %></div>
   </body>

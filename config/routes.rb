@@ -11,9 +11,9 @@ Rails.application.routes.draw do
  
   resources :doctors, only: [:show, :index]
   resources :users
-  resources :reviews, only: [:index, :show, :new, :create, :edit, :update]
-  get 'reviews/:id/edit', to: 'reviews#edit'
-  patch 'reviews/:id', to: 'reviews#update'
+  resources :reviews#, only: [:index, :show, :new, :create, :edit, :update]
+  # get 'reviews/:id/edit', to: 'reviews#edit'
+  # patch 'reviews/:id', to: 'reviews#update'
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   resources :doctors do
     # nested resource for reviews
     resources :reviews#, only: [:index, :new, :show]
+
+    resources :users do 
+      resources :reviews
   end
 end
