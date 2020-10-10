@@ -1,3 +1,0 @@
-<h3><%= link_to @review.doctor.name, doctor_path(@review.doctor) if @review.doctor%> Review</h3>
-<p><%= @review.content %> by <%= @reviews.user.name %> </p>
-(<%= link_to "Edit review", edit_doctor_review_path(@review.doctor, @review) if @review.doctor %>)</p>

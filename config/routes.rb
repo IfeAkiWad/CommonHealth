@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
   #doctor's reviews
-  resources :doctors, only: [:show, :index] do
+  resources :doctors do
     # nested resource for reviews
-    resources :reviews, only: [:show, :index, :new, :edit]
+    resources :reviews
 
   end
 
-  root 'doctors#index'
+  # root 'doctors#index'
 end
