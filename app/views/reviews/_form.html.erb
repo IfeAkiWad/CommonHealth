@@ -1,5 +1,7 @@
 <%= form_for @review do |f| %>
 Write Review Here:<br><br>
+<%= f.hidden_field :doctor_id %>
+
 <%  f.label :content %>
 <%= f.text_area :content %><br><br>
 <%= f.submit %>

@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
   #doctor's reviews
-  resources :doctors do
+  resources :doctors, only: [:show, :index] do
     # nested resource for reviews
-    resources :reviews#, only: [:index, :new, :show]
+    resources :reviews, only: [:show, :index, :new, :edit]
+
   end
 end

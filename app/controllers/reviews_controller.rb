@@ -3,19 +3,19 @@ class ReviewsController < ApplicationController
     # skip_before_action :require_login, only: [:index]
     
     def new
-        @review = Review.new
-        # if params[:doctor_id]
-        #     @doctor = Doctor.find_by_id(params[:doctor_id])
-        # end
+        @review = Review.new(doctor_id: params[:doctor_id])
+        if params[:doctor_id]
+            @doctor = Doctor.find_by_id(params[:doctor_id])
+        end
         
     end
 
     def index
         # @reviews = Review.all
-                if params[:doctor_id]
+                @reviews = if params[:doctor_id]
     # #         #defining reviews based on inclusion of the doctor_id parameter
-                    @reviews = Doctor.find(params[:doctor_id]).reviews
-                    # Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
+                    # @reviews = Doctor.find_by_id(params[:id]).reviews
+                    Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
                 else
                     @reviews = Review.all
                 end
@@ -25,6 +25,10 @@ class ReviewsController < ApplicationController
 
     def show
         review_set
+        if params[:doctor_id]
+            @doctor = Doctor.find_by_id(params[:doctor_id])
+        end
+        #create a show view 
     end
 
     def create 
@@ -32,7 +36,7 @@ class ReviewsController < ApplicationController
         @review = Review.create(review_params)
             if @review.save
             #     if params[:doctor_id]
-                    redirect_to doctor_review_path(doctor_id, @review)
+                    redirect_to reviews_path(@review)
                 # end
             else
                 render :new
