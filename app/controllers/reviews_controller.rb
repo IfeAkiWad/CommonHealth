@@ -12,13 +12,14 @@ class ReviewsController < ApplicationController
 
     def index
         # @reviews = Review.all
-      @reviews = #if params[:doctor_id]
+                if params[:doctor_id]
     # #         #defining reviews based on inclusion of the doctor_id parameter
-    #                 @reviews = Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
-    #             else
-                    Review.all
+                    @reviews = Doctor.find(params[:doctor_id]).reviews
+                    # Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
+                else
+                    @reviews = Review.all
+                end
     #                 current_user.reviews
-                # end
                 
     end
 
@@ -30,9 +31,9 @@ class ReviewsController < ApplicationController
         
         @review = Review.create(review_params)
             if @review.save
-                if params[:doctor_id]
-                    redirect_to reviews_path
-                end
+            #     if params[:doctor_id]
+                    redirect_to doctor_review_path(doctor_id, @review)
+                # end
             else
                 render :new
             end
