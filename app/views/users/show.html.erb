@@ -1,18 +1,18 @@
 <h2><%= @user.username %> has reviewed the following doctor(s): </h2>
 
-
-
-
-
-
-
+<ul>
+    <il>
+        <% @user.reviews.each do |review| %>
+            "<%= review.content %>" <br><br>
+    </il>
+</ul>
+<% end %><br><br>
 
 
 <!--
 <ul>
     <il>
      <% @user.reviews.each do |review| %>
-       <% byebug %>
         "<%= review.content %>" <br><br>
         <%=link_to "Edit Review", edit_doctor_review_path(review) %><br>
         <%= link_to "Delete Review", review_path(review), method: 'delete'%>

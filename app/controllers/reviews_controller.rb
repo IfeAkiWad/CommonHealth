@@ -11,14 +11,14 @@ class ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Review.all
-    #   @reviews = if params[:doctor_id]
-    #         #defining reviews based on inclusion of the doctor_id parameter
+        # @reviews = Review.all
+      @reviews = #if params[:doctor_id]
+    # #         #defining reviews based on inclusion of the doctor_id parameter
     #                 @reviews = Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
     #             else
-    #                 # Review.all
+                    Review.all
     #                 current_user.reviews
-    #             end
+                # end
                 
     end
 
@@ -30,7 +30,9 @@ class ReviewsController < ApplicationController
         
         @review = Review.create(review_params)
             if @review.save
-                redirect_to reviews_path(@doctor)
+                if params[:doctor_id]
+                    redirect_to reviews_path
+                end
             else
                 render :new
             end
@@ -54,7 +56,7 @@ class ReviewsController < ApplicationController
         # review_set
         byebug
         if @review.update(review_params) 
-            redirect_to user_path(@user)
+            redirect_to doctor_review_path
         else
             # flash[:alert] = "try again."
             render :edit
@@ -64,7 +66,7 @@ class ReviewsController < ApplicationController
     def destroy
         review_set
         if @review.delete
-            redirect_to user_path
+            redirect_to doctor_review_path
         else
         #     flash[:alert] = "Could not be deleted. Try again."
             render :edit
