@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:show, :index, :new, :edit]
 
   end
+
+  root 'doctors#index'
 end

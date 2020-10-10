@@ -1,42 +1,49 @@
 class ReviewsController < ApplicationController
-    before_action :require_login#, :review_set, only: [:edit, :update, :show] #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
-    # skip_before_action :require_login, only: [:index]
+    before_action :require_login
+    before_action :review_set, only: [:edit, :update, :show, :destroy] #filter runs before all controller's actions, and kicks requests out with 403 Forbidden unless logged in.
+    before_action :get_doctor
+    skip_before_action :require_login, only: [:index]
     
     def new
-        @review = Review.new(doctor_id: params[:doctor_id])
-        if params[:doctor_id]
-            @doctor = Doctor.find_by_id(params[:doctor_id])
-        end
+        @review = @doctors.reviews.build
+        # Review.new#(doctor_id: params[:doctor_id])
+        # if params[:doctor_id]
+        #     @doctor = Doctor.find_by_id(params[:doctor_id])
+        # end
         
     end
 
     def index
+        # binding.pry
         # @reviews = Review.all
-                @reviews = if params[:doctor_id]
+                # @reviews = if params[:doctor_id]
     # #         #defining reviews based on inclusion of the doctor_id parameter
                     # @reviews = Doctor.find_by_id(params[:id]).reviews
-                    Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model
-                else
-                    @reviews = Review.all
-                end
-    #                 current_user.reviews
+                    # Review.find_by_doctor_id(params[:doctor_id]) #chained to custom method built in Review model  
+                # else
+                    @reviews = @doctors.reviews
+                # end
+                # binding.pry   
+    # current_user.reviews
                 
     end
 
     def show
-        review_set
-        if params[:doctor_id]
-            @doctor = Doctor.find_by_id(params[:doctor_id])
-        end
+        # review_set
+        # if params[:doctor_id]
+        #     @doctor = Doctor.find_by_id(params[:doctor_id])
+        # end
         #create a show view 
     end
 
     def create 
         
-        @review = Review.create(review_params)
+        @review = @doctors.reviews.build(review_params)
             if @review.save
+                redirect_to @review, notice: 'review was successfully created.'
+                render :show, status: :created, location: @review
             #     if params[:doctor_id]
-                    redirect_to reviews_path(@review)
+                    # redirect_to reviews_path(@review)
                 # end
             else
                 render :new
@@ -59,9 +66,10 @@ class ReviewsController < ApplicationController
 
     def update #notrendering updated form
         # review_set
-        byebug
+        # byebug
         if @review.update(review_params) 
-            redirect_to doctor_review_path
+            redirect_to doctor_review_path(@doctor), notice: 'Review was successfully updated.'        
+            render :show, status: :ok, location: @review
         else
             # flash[:alert] = "try again."
             render :edit
@@ -69,9 +77,11 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        review_set
-        if @review.delete
-            redirect_to doctor_review_path
+        if @review.destroy
+            redirect_to doctor_reviews_path(@doctor), notice: 'Review was successfully deleted.'
+        # review_set
+        # if @review.delete
+        #     redirect_to doctor_review_path
         else
         #     flash[:alert] = "Could not be deleted. Try again."
             render :edit
@@ -80,7 +90,7 @@ class ReviewsController < ApplicationController
 
     private
     def review_set
-        @review = Review.find_by_id(params[:id])
+        @review = @doctor.reviews.find_by_id(params[:id])
     end
 
     def review_params
@@ -91,5 +101,9 @@ class ReviewsController < ApplicationController
         if !current_user
             redirect_to login_path
         end 
+    end
+
+    def get_doctor
+        @doctor = Doctor.find(params[:doctor_id])
     end
 end
