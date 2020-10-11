@@ -1,4 +1,4 @@
-<%=form_for @review do |f| %>
+<%=form_for ([@doctor, @review]) do |f| %>
 <% f.label :content %>
 <%= f.text_area :content %><br>
 <%= f.submit "Submit Review"%>

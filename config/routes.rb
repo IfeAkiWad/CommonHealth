@@ -11,7 +11,6 @@ Rails.application.routes.draw do
  
   resources :doctors, only: [:show, :index]
   resources :users
-  resources :reviews
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   
