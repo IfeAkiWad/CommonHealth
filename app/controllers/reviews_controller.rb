@@ -2,7 +2,10 @@ class ReviewsController < ApplicationController
     before_action :require_login
 
     def index
-        @review = Review.all
+        # binding.pry
+        if params[:doctor_id]
+            @reviews = Doctor.find(params[:doctor_id]).reviews
+        end
     end
 
     def new
@@ -11,6 +14,11 @@ class ReviewsController < ApplicationController
 
     def create
         @review = Review.create(review_params)
+            if @review.save
+                redirect_to doctor_reviews_path
+            else
+                render :new
+            end
     end
 
     def show
