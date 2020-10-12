@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
 
     def index
         # binding.pry
-        if params[:doctor_id]
-            @reviews = Review.find_by_doctor_id(params[:doctor_id]).reviews
-        end
+        @user = User.find_by_id(params[:user_id])
+        @doctor = Doctor.find_by_id(params[:doctor_id])
+        @reviews = @doctor.reviews
+            # Review.find_by_doctor_id(params[:doctor_id]) if params[:doctor_id]
     end
 
     def new #this action will only create a new review if a doctor already exists
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
         # binding.pry
         @review = Review.create(review_params)
             if @review.save
-                redirect_to review_path(@review)
+                redirect_to doctor_reviews_path(@review)
             else
                 render :new
             end
@@ -25,6 +26,7 @@ class ReviewsController < ApplicationController
 
     def show
         review_set
+        @review.doctor_id = p
     end
 
     def edit
@@ -41,6 +43,11 @@ class ReviewsController < ApplicationController
     end
 
     private
+
+    def get_doctor
+        @doctor = Doctor.find_by_id(params[:id])
+    end
+
     def review_set
         @review = Review.find_by_id(params[:id])
     end
