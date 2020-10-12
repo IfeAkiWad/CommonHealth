@@ -19,4 +19,5 @@ class DoctorsController < ApplicationController
     # def doctor_params
     #     params.require(:user).permit(:name, :specialty, :location, :insurance_accepted)
     # end
+
 end

@@ -1,0 +1,5 @@
+<h2><%= @doctor.name%>'s Review</h2>
+<% @doctor.reviews.each do |review| %>
+    <%= review.content%>
+    <%= link_to "Edit", edit_doctor_review_path(@doctor, @review) %>
+<%end%>
