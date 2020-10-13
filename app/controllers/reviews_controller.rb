@@ -17,9 +17,9 @@ class ReviewsController < ApplicationController
 
     def create
         # binding.pry
-        @review = Review.create(review_params)
+        @review = @doctor.reviews.new(params[review_params]) 
             if @review.save
-                redirect_to doctor_review_path(@doctor, @review)
+                redirect_to doctor_review_path(@doctor)
             else
                 render :new
             end
@@ -32,11 +32,16 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @review.update(review_params)
+        if @review.update(review_params)
+            redirect_to review_path(@review)
+        else
+            render :edit
+        end
     end
 
     def destroy
         @review.destroy
+        redirect_to doctor_reviews_path(@doctor)
 
     end
 

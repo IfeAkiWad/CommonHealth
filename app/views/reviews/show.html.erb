@@ -1,7 +1,7 @@
 <h2><%= @doctor.name%>'s Review</h2>
 <% @doctor.reviews.each do |review| %>
     <%= review.content%><br><br>
-    <%= link_to review.content, review_path(review)%>
-    <%= link_to "Edit", edit_doctor_review_path(@doctor) %><br>
-    <%= link_to "Delete", doctor_review_path(@doctor), method: :delete%>
+    <%= link_to review.content, doctor_review_path(review)%>
+    <%= link_to "Edit", edit_doctor_review_path(@review) %><br>
+    <%= link_to "Delete", doctor_review_path(@review), method: :delete%>
 <%end%>
