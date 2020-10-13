@@ -17,9 +17,10 @@ class ReviewsController < ApplicationController
 
     def create
         # binding.pry
-        @review = @doctor.reviews.new(params[review_params]) 
+        @review = current_user.reviews.new(review_params) 
+        @review.doctor = @doctor
             if @review.save
-                redirect_to doctor_review_path(@doctor)
+                redirect_to doctor_reviews_path(@doctor)
             else
                 render :new
             end
@@ -33,7 +34,7 @@ class ReviewsController < ApplicationController
 
     def update
         if @review.update(review_params)
-            redirect_to review_path(@review)
+            redirect_to doctor_review_path(@doctor, @review)
         else
             render :edit
         end
@@ -56,7 +57,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:content, :doctor_id, :user_id)
+        params.require(:review).permit(:content)
     end
 
     def require_login

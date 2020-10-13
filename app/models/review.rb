@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-    belongs_to :user, :optional => true
-    belongs_to :doctor, :optional => true
+    belongs_to :user
+    belongs_to :doctor
     
     validates :content, presence: true, length: { maximum: 250 }
 
