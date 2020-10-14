@@ -5,8 +5,8 @@ class DoctorsController < ApplicationController
             @doctors = Doctor.by_location(params[:location]) 
         # elsif !params[:location].blank?
         #     @doctors = Doctor.by_specialty(params[:specialty])
-        # else
-        #     @doctors = Doctor.all
+        else
+            @doctors = Doctor.all
         end
     end
 

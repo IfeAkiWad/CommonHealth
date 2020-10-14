@@ -3,20 +3,15 @@ class ReviewsController < ApplicationController
     before_action :set_doctor
     before_action :set_review, only: [:show, :edit, :update, :destroy]
 
-    def index
-        # binding.pry
-        # @user = User.find_by_id(params[:user_id])
-        # set_doctor        
+    def index  #This will return reviews for a specific doctor     
         @reviews = @doctor.reviews
-            # Review.find_by_doctor_id(params[:doctor_id]) if params[:doctor_id]
     end
 
-    def new #this action will only create a new review for a doctor already exists
+    def new #this action will only create a new review for a doctor who already exists
         @review = @doctor.reviews.new
     end
 
     def create
-        # binding.pry
         @review = current_user.reviews.new(review_params) 
         @review.doctor = @doctor
             if @review.save
