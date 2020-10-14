@@ -7,9 +7,10 @@ module ApplicationHelper
         end
     end
 
-#    def render_user_home
-#         if current_user
-#             link_to "Profile", profile_path
-#         end
-#     end
+   def render_user_home
+        @user = current_user
+        if current_user
+            link_to "Home", user_path(@user)
+        end
+    end
 end
