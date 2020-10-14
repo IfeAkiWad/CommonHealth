@@ -6,7 +6,7 @@
     
      <% @user.reviews.each do |review| %>
     <il>
-        "<%= review.content %>" about <%=review.doctor.name%> <br><br>
+        "<%= review.content %>" about <%=link_to review.doctor.name, doctor_path(review.doctor)%> <br><br>
         <%=link_to "Edit Review", edit_doctor_review_path(review.doctor, review) %><br>
         <%= link_to "Delete Review", doctor_review_path(review.doctor, review), method: 'delete'%>
     </il>

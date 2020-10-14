@@ -1,4 +1,12 @@
 <h2>List of Black Doctors in the U.S.</h2>
+<div>
+  <h3>Search Doctors by Location:</h3>
+  <%= form_tag doctors_path, :method => 'get' do %>
+    <%= select_tag "Location", options_from_collection_for_select(@doctors, :id, :location), include_blank: true %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
 
 <% @doctors.each do |doctor| %>
 <ul>

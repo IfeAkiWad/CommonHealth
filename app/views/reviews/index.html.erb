@@ -1,14 +1,15 @@
 <h2>All of <%= @doctor.name%>'s Reviews</h2>
 <%if @reviews.empty?%>
     <h3>No reviews yet!</h3>
+    <%=link_to "Give a Review", new_doctor_review_path(@doctor) %>
 <%else%>
 <ul>
     
     <% @reviews.each do |review| %>
     <li>
-        <%= review.content%> by <%=review.user.username%><br><br>
+        "<%= review.content%>" by <%=review.user.username%><br><br>
         <%if review.user == current_user%>
-            <%= link_to "Edit", edit_doctor_review_path(@doctor, review) %><br>
+            <%= link_to "Edit", edit_doctor_review_path(@doctor, review) %> 
             <%= link_to "Delete", doctor_review_path(@doctor, review), method: :delete%>
         <%end%>
     </li>

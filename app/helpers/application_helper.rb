@@ -7,9 +7,9 @@ module ApplicationHelper
         end
     end
 
-    # def render_home
-    #     if session[:user_id]
-    #         link_to "Home",
-
-    # end
+#    def render_user_home
+#         if current_user
+#             link_to "Profile", profile_path
+#         end
+#     end
 end

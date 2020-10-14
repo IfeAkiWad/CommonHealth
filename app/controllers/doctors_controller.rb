@@ -1,6 +1,10 @@
 class DoctorsController < ApplicationController
     def index #ERROR: list repeats itself!!!!
         @doctors = Doctor.all
+        if !params[:location].blank?
+            @doctors = Doctor.find_by_location(params[:location])
+            # @doctors = Doctor.by_location(params[:location])
+        end
     end
 
     def show

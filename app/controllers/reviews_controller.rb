@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
 
     def update
         if @review.update(review_params)
-            redirect_to doctor_review_path(@doctor, @review)
+            redirect_to doctor_reviews_path(@doctor)
         else
             render :edit
         end

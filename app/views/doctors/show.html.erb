@@ -5,4 +5,5 @@ Location:  <%= @doctor.location %><br>
 Insurance Accepted:  <%= @doctor.insurance_accepted %><br>
 </p>
 <%=link_to "Reviews of Doctor", doctor_reviews_path(@doctor) %><br>
-<%=link_to "Give a Review", new_doctor_review_path(@doctor) %>
+<%=link_to "Give a Review", new_doctor_review_path(@doctor) %><br><br>
+<%= link_to "List of Doctors", doctors_path %>
