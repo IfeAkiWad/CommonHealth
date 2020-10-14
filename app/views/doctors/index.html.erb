@@ -1,10 +1,16 @@
+<%if current_user.nil? %>
+    <%" "%>
+<%else%>
+    <h3>Hello, <%=current_user.username%>!</h3>
+<%end%>
 <h2>List of Black Doctors in the U.S.</h2>
 <div>
-  <h3>Search Doctors by Location:</h3>
+  <h3>Search Doctors by Location, or Specialty:</h3>
     <%= form_tag doctors_path, :method => 'get' do %>
-        <%= select_tag "location", options_from_collection_for_select(Doctor.all, :location, :location), include_blank: true %>
-        <%= select_tag "specialty", options_from_collection_for_select(Doctor.all, :specialty, :specialty), include_blank: true %>
-    <!--<%= select_tag "specialty", options_for_select(["Family Medicine", "Cardiology", "Oncology", "Obstretics and Gynecology", "Pathology"]), include_blank: true %>-->
+        <label>Location:</label>
+        <%= select_tag "location", options_from_collection_for_select(Doctor.select(:location).distinct, :location, :location), include_blank: true %>
+        <label>Specialty: </label>
+        <%= select_tag "specialty", options_from_collection_for_select(Doctor.select(:specialty).distinct, :specialty, :specialty), include_blank: true %>
         <%= submit_tag "Search" %>
     <% end %>
 </div>
