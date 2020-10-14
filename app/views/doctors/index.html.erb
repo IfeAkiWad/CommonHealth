@@ -2,7 +2,8 @@
 <div>
   <h3>Search Doctors by Location:</h3>
     <%= form_tag doctors_path, :method => 'get' do %>
-        <%= select_tag "location", options_from_collection_for_select(@doctors, :id, :location), include_blank: true %>
+        <%= select_tag "location", options_from_collection_for_select(Doctor.all, :location, :location), include_blank: true %>
+        <%= select_tag "specialty", options_from_collection_for_select(Doctor.all, :specialty, :specialty), include_blank: true %>
     <!--<%= select_tag "specialty", options_for_select(["Family Medicine", "Cardiology", "Oncology", "Obstretics and Gynecology", "Pathology"]), include_blank: true %>-->
         <%= submit_tag "Search" %>
     <% end %>
