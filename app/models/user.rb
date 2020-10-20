@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :reviews
     has_many :doctors, through: :reviews
-    validates :username, :email, presence: true, uniqueness: true
+    validates :username, :name, :email, presence: true, uniqueness: true
     has_secure_password
 
     #omniauth custom class here
