@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   end
 
   protected
-  def auth
+  def auth #credentials (Client ID and Client secret)
     request.env['omniauth.auth']
   end
 end
