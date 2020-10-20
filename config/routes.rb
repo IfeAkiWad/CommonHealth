@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   end
 
-  # root 'doctors#index'
+  root 'doctors#index'
 end
