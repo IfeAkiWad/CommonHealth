@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_205101) do
     t.string "email"
     t.string "password"
     t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
   end
 
 end
