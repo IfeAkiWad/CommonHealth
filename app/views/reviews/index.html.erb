@@ -5,12 +5,14 @@
 <%else%>
 <ul>
     
-    <% @reviews.each do |review| %>
+    <% @reviews.each do |review| #binding.pry %>
     <li>
-        "<%= review.content%>" by <%=review.user.username%><br><br>
-        <%if review.user == current_user%>
+        <%if review.user.present?%>
+            "<%= review.content%>" by <%=  review.user.username%><br><br>
+        <%end%>
+            <%if review.user == current_user%>
             <%= link_to "Edit", edit_doctor_review_path(@doctor, review) %> 
-            <%= link_to "Delete", doctor_review_path(@doctor, review), method: :delete%>
+            <%= link_to "Delete", doctor_review_path(@doctor, review), method: :delete%><br><br>
         <%end%>
     </li>
     <%end%>
