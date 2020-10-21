@@ -10,7 +10,7 @@ class User < ApplicationRecord
         find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
             u.username = auth['info']['first_name']
             u.email = auth['info']['email']
-            u.name = auth['info']['name']
+            # u.name = auth['info']['name']
             u.password = SecureRandom.hex(15)
         end
     end
