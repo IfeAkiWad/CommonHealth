@@ -21,5 +21,9 @@ Rails.application.routes.draw do
 
   end
 
+  # resources :users do
+  #   resources :doctors, only: [:index]
+  # end
+
   root 'doctors#index'
 end
