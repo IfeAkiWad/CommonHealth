@@ -1,11 +1,11 @@
 <%if current_user.nil? %>
-    <h3>Welcome to CommonHealth</h3>
+    <h3 id='welcome'>Welcome to CommonHealth</h3>
 <%else%>
-    <h3>Hello, <%=current_user.username%>!</h3>
+    <h3 id='welcome'>Hello, <%=current_user.username%>!</h3>
 <%end%>
-<h2>List of Black Doctors in the U.S.</h2>
-<div>
-  <h3>Search Doctors by Location, or Specialty:</h3>
+<h2 id='list-header'>List of Black Doctors in the U.S.</h2>
+<div id='search-container'>
+  <h3 id='search-header'>Search Doctors by Location, or Specialty:</h3>
     <%= form_tag doctors_path, :method => 'get' do %>
         <label>Location:</label>
         <%= select_tag "location", options_from_collection_for_select(Doctor.select(:location).distinct, :location, :location), include_blank: true %>
@@ -13,14 +13,27 @@
         <%= select_tag "specialty", options_from_collection_for_select(Doctor.select(:specialty).distinct, :specialty, :specialty), include_blank: true %>
         <%= submit_tag "Search" %>
     <% end %>
-</div>
+</div><br><br><br>
 
-
-<% @doctors.each do |doctor| %>
-<ul>
-    <il>
-    <%= link_to doctor.name, doctor_path(doctor) %>
-    </il>
-</ul>
-<% end %>
+<%if !location_specialty%>
+    <div hidden id='doctor-conatainer'>
+    <% @doctors.each do |doctor| %>
+    <ul id='doctor-list'>
+        <il id='doctor-name'>
+        <%= link_to doctor.name, doctor_path(doctor) %>
+        </il>
+    </ul>
+    <% end %>
+    </div>
+<%else%>
+    <div id='doctor-conatainer'>
+    <% @doctors.each do |doctor| %>
+    <ul id='doctor-list'>
+        <il id='doctor-name'>
+        <%= link_to doctor.name, doctor_path(doctor) %>
+        </il>
+    </ul>
+    <% end %>
+    </div>
+<%end%>
   
