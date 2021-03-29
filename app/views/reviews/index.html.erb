@@ -1,10 +1,10 @@
 <div id="doctor-reviews">
-<h2>All of <%= @doctor.name%>'s Reviews</h2>
+<h2 id="doctor">All of <%= @doctor.name%>'s Reviews</h2>
 <%if @reviews.empty?%>
     <h3>No reviews yet!</h3>
     <%=link_to "Give a Review", new_doctor_review_path(@doctor) %>
 <%else%>
-<ul>
+<ul id="review">
     
     <% @reviews.each do |review|%>
     <il>
@@ -20,5 +20,7 @@
 <%end%>
 </div>
 <br><br>
+<div id="page-redirection">
 <%= link_to "Back to Doctor", doctor_path(@doctor) %><br>
 <%= link_to "Back to Search", doctors_path %>
+</div>

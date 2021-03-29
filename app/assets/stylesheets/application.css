@@ -28,6 +28,10 @@ body {
     font-size:medium;
 }
 
+#page-redirection {
+    text-align: center;
+}
+
  /* Doctor's index */
  #welcome {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -88,4 +92,12 @@ font-size: x-large;
  }
 
  /* doctor reviews */
- 
+ #doctor-reviews {
+    text-align: center;
+    /* text-decoration: underline; */
+    margin-top: 15%;
+ }
+
+ #review {
+     font-size: large;
+ }
