@@ -1,7 +1,7 @@
 <%if current_user.nil? %>
     <h3 id='welcome'>Welcome to CommonHealth</h3>
 <%else%>
-    <h3 id='welcome'>Hello, <%=current_user.username%>!</h3>
+    <h3 id='user'>Hello, <%=current_user.username%>!</h3>
 <%end%>
 <h2 id='list-header'>List of Black Doctors in the U.S.</h2>
 <div id='search-container'>
