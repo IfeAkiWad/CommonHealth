@@ -7,7 +7,7 @@
 <ul id="review">
     
     <% @reviews.each do |review|%>
-    <il>
+    <il id="review-il">
             "<%= review.content%>" by <%=  review.user.username%><br><br>
             <%if review.user == current_user%>
             <%= link_to "Edit", edit_doctor_review_path(@doctor, review) %> |

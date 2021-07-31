@@ -34,13 +34,13 @@ body {
 
  /* Doctor's index */
  #welcome {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Courier, monospace;
     text-align: center;
     text-decoration: underline;
-    color: rgb(255, 60, 0);
-    font-size:xx-large;
+    color: rgb(231, 54, 0);
+    font-size:50px;
     font-weight: bold;
-    /* text-shadow: 1px 1px 1px #000000; */
+    text-shadow: 1px 1px 1px #414141;
     margin-top: 100px;
     margin-bottom: 75px;
  }
@@ -60,16 +60,17 @@ body {
  }
  #search-container {
 text-align: center; 
-font-size: x-large;
+font-size:larger;
 }
 
  #list-header {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
  }
 
  #doctor-list {
-     text-align: center;
+    text-align: center;
+    font-size: medium;
     
  }
 
@@ -98,6 +99,14 @@ font-size: x-large;
     margin-top: 15%;
  }
 
- #review {
-     font-size: large;
+ #review-il {
+    text-align:center;
+    font-size: large;
+
  }
+
+ /* #review {
+     font-size: large;
+     text-align: center;
+
+ } */

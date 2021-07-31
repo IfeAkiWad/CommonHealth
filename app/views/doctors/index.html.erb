@@ -16,7 +16,7 @@
 </div><br><br><br>
 
 <%if !location_specialty%>
-    <div hidden id='doctor-conatainer'>
+    <div hidden id='doctor-container'>
     <% @doctors.each do |doctor| %>
     <ul id='doctor-list'>
         <il id='doctor-name'>
@@ -26,7 +26,7 @@
     <% end %>
     </div>
 <%else%>
-    <div id='doctor-conatainer'>
+    <div id='doctor-container'>
     <% @doctors.each do |doctor| %>
     <ul id='doctor-list'>
         <il id='doctor-name'>
